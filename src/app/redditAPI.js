@@ -1,3 +1,5 @@
-export const fetchReddit = url => {
-    return fetch(url).then(resolve => resolve.json()).then(resolve => resolve);
+export const fetchReddit = async url => {
+    const resolve = await fetch(url);
+  const resolve_1 = await resolve.json();
+  return resolve_1.data;
   }

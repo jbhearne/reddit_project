@@ -2,9 +2,9 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchReddit } from '../../app/redditAPI';
 
 
-const convertTime = unixTime => {
+const convertUnixTime = unixTime => {
     const timezoneOffset = new Date().getTimezoneOffset() * 60000; // getTimezoneOffset() in minutes * 60(seconds) * 1000(miliseconds) = 60000
-    const date = new Date((unixTime * 1000) - timezoneOffset)
+    const date = new Date((unixTime * 1000) - timezoneOffset)  // JavaScript time is in miliseconds (* 1000) minus the timezone offset.
     return date.toDateString()
 }
 
@@ -12,32 +12,68 @@ export const fetchPosts = createAsyncThunk(
     'posts/fetchPosts',
     async (url) => {
         const response = await fetchReddit(url);
-        return response.children.map(child => {
+        console.log(response.children[0].data.gallery_data)
+        //const res = response
+        //console.log(res)
+
+        const mapp = response.children.map(child => {
+            console.log(child)
+            
+            const getImageUrls = () => {
+                let imageUrls = []
+                
+                if (child.data.gallery_data) {
+                    const imageIdData = child.data.gallery_data.items.filter(idData => child.data.media_metadata[idData.media_id].e === 'Image')
+                    imageUrls = imageIdData.map(image => {
+                        return child.data.media_metadata[image.media_id].p[0].u.replace('https://preview.redd.it', 'https://i.redd.it');
+                    })
+                }
+                return imageUrls
+            }
+
+            const getMedia = () => {
+                const media = {}
+                if (child.data.media) {
+                    if (child.data.media.oembed) {
+                        media.embed = child.data.media.oembed.html.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+                    } else if (child.data.media.reddit_video) {
+                        media.video = child.data.media.reddit_video.fallback_url
+                    }
+                }
+                return media
+            }
+
             return {
                 author: child.data.author,
                 title: child.data.title,
-                date: convertTime(child.data.created),
+                date: convertUnixTime(child.data.created),
                 upvotes: child.data.score,
                 text: child.data.selftext,
-                images: child.data.gallery_data.map(media => {
-                    if (child.data.media_metadata.[media.media_id].e === 'Image') {
-                        return child.data.media_metadata.[media.media_id].p[4].u.replace('https://preview.redd.it', 'https://i.redd.it');
-                    };
-                })
-
+                images:  getImageUrls(),
+                media:  getMedia(),
+                id: child.data.id
             }
         })
+        //console.log(response)
+        //console.log(res)
+        console.log(mapp[0])
+        return mapp
     }
 )
 
 export const postsSlice = createSlice({
     name: 'posts',
     initialState: {
+        url: '',
         posts: [],
         isLoading: false,
         hasError: false
     },
-    reducers: {},
+    reducers: {
+        setPostsUrl: (state, action) => {
+            state.url = action.payload
+        }
+    },
     extraReducers: {
         [fetchPosts.pending]: (state, action) => {
             state.isLoading = true;
@@ -56,5 +92,7 @@ export const postsSlice = createSlice({
 })
 
 export const selectPosts = (state) => state.posts.posts;
+export const selectUrl = (state) => state.posts.url;
+export const setPostsUrl = postsSlice.actions.setPostsUrl;
 
 export default postsSlice.reducer

@@ -1,12 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
+import { Search } from './features/search/Search'
+import { Posts } from './features/posts/Posts'
+import { Subreddits } from './features/subreddits/Subreddits'
+import { useDispatch } from 'react-redux'
+import { setPostsUrl } from './features/posts/postsSlice'
 
 function App() {
+
+  const {isNavOpen, setIsNavOpen} = useState(false)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setPostsUrl('https://www.reddit.com/r/popular.json'))
+  }, [])
+
+  const handleNavClick = () => {
+    setIsNavOpen(true)
+  }
+
+
+
   return (
     <div className="App">
-      {/*<header className="App-header">
+      <header className='search_header'>
+        <h1 className='main' onClick={handleNavClick}>REDDIT</h1>
+        <Search />
+      </header>
+      {isNavOpen && (<nav className='floating_nav'>
+        <Subreddits />
+      </nav>)}
+      <div className='posts'>
+        <Posts />
+      </div>
+      
+      {
+      /*<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>

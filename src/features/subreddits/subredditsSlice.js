@@ -1,11 +1,20 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { computeHeadingLevel } from '@testing-library/react';
 import { fetchReddit } from '../../app/redditAPI';
 
 export const fetchSubreddits  = createAsyncThunk(
     'subreddits/fetchSubreddits',
     async (url) => {
         const response = await fetchReddit(url);
-        return response.children
+        return response.children.map(child => {
+            return {
+                name: child.data.display_name,
+                icon: child.data.icon_img,  // I might want to put a ternary here to apply a default icon if none exists.
+                url: child.data.url,
+                description: child.data.description,
+                id: child.data.id
+            }
+        })
     }
 )
 
