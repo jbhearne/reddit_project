@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectSubreddits } from './subredditsSlice';
+import { selectSubreddits, selectUrl, fetchSubreddits } from './subredditsSlice';
 import { Subreddit } from './subreddit/Subreddit';
 
 export function Subreddits() {
 
-    const subreddits = useSelector(selectSubreddits)
+    const subreddits = useSelector(selectSubreddits);
+    const url = useSelector(selectUrl);
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fetchSubreddits(url))
+    }, [url])
 
     return (
         <div>
@@ -13,7 +19,7 @@ export function Subreddits() {
             <ul>
                 {subreddits.map(subreddit => {
                     return (
-                        <Subreddit subreddit={subreddit} />
+                        <li key={subreddit.id}><Subreddit subreddit={subreddit} /></li>
                     )
                 })}
             </ul>

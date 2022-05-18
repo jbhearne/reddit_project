@@ -14,12 +14,12 @@ export function Posts() {
     }, [url])
 
     return (
-        <div>
+        <ul>
             {posts.map(post => {
                 return (
-                    <Post post={post} />
+                    <li key={post.id}><Post post={post} /></li>
                 )
             })}
-        </div>
+        </ul>
     )
 }

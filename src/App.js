@@ -5,20 +5,27 @@ import './App.css';
 import { Search } from './features/search/Search'
 import { Posts } from './features/posts/Posts'
 import { Subreddits } from './features/subreddits/Subreddits'
-import { useDispatch } from 'react-redux'
-import { setPostsUrl } from './features/posts/postsSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { setPostsUrl, selectUrl } from './features/posts/postsSlice'
+import { setSubredditsUrl } from './features/subreddits/subredditsSlice'
 
 function App() {
 
-  const {isNavOpen, setIsNavOpen} = useState(false)
+  const [isNavOpen, setIsNavOpen] = useState(false)
   const dispatch = useDispatch();
+  const postsUrl = useSelector(selectUrl)
 
   useEffect(() => {
     dispatch(setPostsUrl('https://www.reddit.com/r/popular.json'))
+    dispatch(setSubredditsUrl('https://www.reddit.com/subreddits.json'))
   }, [])
 
+  useEffect(() => {
+    setIsNavOpen(false) // closes nav when a a new subreddit is clicked on and the posts url changes.
+  }, [postsUrl])
+
   const handleNavClick = () => {
-    setIsNavOpen(true)
+    setIsNavOpen(!isNavOpen)
   }
 
 

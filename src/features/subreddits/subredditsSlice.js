@@ -21,11 +21,16 @@ export const fetchSubreddits  = createAsyncThunk(
 export const subredditsSlice = createSlice({
     name: 'subreddits',
     initialState: {
+        url: '',
         subreddits: [],
         isLoading: false,
         hasError: false
     },
-    reducers: {},
+    reducers: {
+        setSubredditsUrl: (state, action) => {
+            state.url = action.payload
+        }
+    },
     extraReducers: {
         [fetchSubreddits.pending]: (state, action) => {
             state.isLoading = true;
@@ -44,5 +49,7 @@ export const subredditsSlice = createSlice({
 })
 
 export const selectSubreddits = (state) => state.subreddits.subreddits;
+export const selectUrl = (state) => state.subreddits.url;
+export const setSubredditsUrl = subredditsSlice.actions.setSubredditsUrl;
 
 export default subredditsSlice.reducer;

@@ -51,6 +51,7 @@ export const fetchPosts = createAsyncThunk(
                 text: child.data.selftext,
                 images:  getImageUrls(),
                 media:  getMedia(),
+                url: child.data.url,
                 id: child.data.id
             }
         })
@@ -64,6 +65,7 @@ export const fetchPosts = createAsyncThunk(
 export const postsSlice = createSlice({
     name: 'posts',
     initialState: {
+        prefix: 'https://www.reddit.com',
         url: '',
         posts: [],
         isLoading: false,
@@ -71,7 +73,10 @@ export const postsSlice = createSlice({
     },
     reducers: {
         setPostsUrl: (state, action) => {
-            state.url = action.payload
+            state.url = action.payload;
+        },
+        setPostsPrefix: (state, action) => {
+            state.prefix = action.payload;
         }
     },
     extraReducers: {
@@ -93,6 +98,8 @@ export const postsSlice = createSlice({
 
 export const selectPosts = (state) => state.posts.posts;
 export const selectUrl = (state) => state.posts.url;
+export const selectPostsPrefix = (state) => state.posts.prefix;
 export const setPostsUrl = postsSlice.actions.setPostsUrl;
+export const setPostsPrefix = postsSlice.actions.setPostsPrefix;
 
 export default postsSlice.reducer
