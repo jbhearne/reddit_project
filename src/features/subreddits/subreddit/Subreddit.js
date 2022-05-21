@@ -24,12 +24,12 @@ export function Subreddit({ subreddit }) {
     }
 
     return (
-        <li className='subreddit' onMouseOver={onMouseOverHandler} onMouseOut={onMouseOutHandler}>
-            <a onClick={handleUrlClick}> {/*need to change this to link*/}
+        <div>
+            <a onClick={handleUrlClick} onMouseOver={onMouseOverHandler} onMouseOut={onMouseOutHandler}> {/*need to change this to link*/}
             <img className='subreddit_icon' src={subreddit.icon}></img>
             <p className="subreddit_name">{subreddit.name}</p>
             </a>
             {isHovered && (<SubredditDescription name={subreddit.name} description={subreddit.description} />)}
-        </li>
+        </div>
     )
 }

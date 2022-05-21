@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectSubreddits, selectUrl, fetchSubreddits } from './subredditsSlice';
 import { Subreddit } from './subreddit/Subreddit';
+import './Subreddits.css'
 
 export function Subreddits() {
 
@@ -14,15 +15,17 @@ export function Subreddits() {
     }, [url])
 
     return (
-        <div>
-            <h3>Subreddit</h3>
-            <ul>
-                {subreddits.map(subreddit => {
-                    return (
-                        <li key={subreddit.id}><Subreddit subreddit={subreddit} /></li>
-                    )
-                })}
-            </ul>
+        <div className='menu_container'>
+            <div className='menu'>
+                <h3>Subreddit</h3>
+                <ul className='subreddits'>
+                    {subreddits.map(subreddit => {
+                        return (
+                            <li className='subreddit' key={subreddit.id}><Subreddit subreddit={subreddit} /></li>
+                        )
+                    })}
+                </ul>
+            </div>
         </div>
     )
 }

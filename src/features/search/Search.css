@@ -1,0 +1,17 @@
+.search .field {
+    width: 40%;
+    height: 2rem;
+    background-color: coral;
+    color: aliceblue;
+    border: solid darkblue 3px;
+    font-size: 1.5rem;
+
+}
+
+.search button {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    background-color: darkgreen;
+    border: solid darkblue 3px;
+}

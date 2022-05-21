@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+
 export function Post({ post }) {
 
 
@@ -13,7 +14,7 @@ export function Post({ post }) {
                 return <div dangerouslySetInnerHTML={createMarkup()}></div> // when I looked this up it said this was created to remind you that it was dangerous, so I am using it to remind my self not to use it.
             } else if (post.media.video) {
                 return (
-                    <video controls width='300'>
+                    <video controls>
                         <source src={post.media.video}></source>
                     </video>
                 )

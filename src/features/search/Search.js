@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectSearch, setSearch } from './searchSlice';
 import { selectPostsPrefix, setPostsUrl } from '../posts/postsSlice';
+import './Search.css'
 
 export function Search() {
 
@@ -23,7 +24,7 @@ export function Search() {
 
     return (
         <form className='search' onSubmit={handleSearchClick}>  {/*onSubmit goes on <form> not <button> this caused some frustration*/}
-            <input type='text' placeholder='Search' name='search' onChange={handleChange}  value={search}></input>
+            <input className='field' type='text' placeholder='Search' name='search' onChange={handleChange} value={search}></input>
             <button><img className='search_img'></img></button>
         </form>
     )

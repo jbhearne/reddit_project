@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Post } from './post/Post'
 import { selectPosts, fetchPosts, selectUrl } from './postsSlice';
+import './Posts.css'
 
 export function Posts() {
 
@@ -14,10 +15,10 @@ export function Posts() {
     }, [url])
 
     return (
-        <ul>
+        <ul className='posts_container'>
             {posts.map(post => {
                 return (
-                    <li key={post.id}><Post post={post} /></li>
+                    <li className='post_box' key={post.id}><Post post={post} /></li>
                 )
             })}
         </ul>

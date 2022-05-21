@@ -1,0 +1,35 @@
+
+.menu {
+    width: 70%;
+    border: solid black 4px;
+    background: white;
+    position: absolute;
+    left: 15%;
+    top: 100px;
+    z-index: 10;
+}
+
+.subreddits {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.subreddit a {
+    display: flex;
+}
+
+.subreddit img {
+    width: 3rem;
+    margin: 1rem;
+}
+
+.description {
+    position: absolute;
+    top: 5rem;
+    left: 17%;
+    width: 70%;
+    background-color: bisque;
+    border: solid black 2px;
+    z-index: 11;
+    padding: .5rem;
+}
