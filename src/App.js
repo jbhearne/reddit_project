@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="App">
       <header className='search_header'>
-        <h1 className='main' onClick={handleNavClick}>REDDIT</h1>
+        <h1 className='main' onClick={handleNavClick}>REDDIT...</h1>
         <Search />
       </header>
       {isNavOpen && (<nav className='floating_nav'>

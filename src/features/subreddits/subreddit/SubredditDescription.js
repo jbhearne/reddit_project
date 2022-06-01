@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import showdown from 'showdown';
 import { useSelector, useDispatch } from 'react-redux';
 
-export function SubredditDescription({ name, description }) {
+export function SubredditDescription({ name, description, handleDescriptionClick }) {
 
     const placeDescription = () => {
         const createMarkup = () => {
@@ -15,6 +15,7 @@ export function SubredditDescription({ name, description }) {
 
     return (
         <div className='description'>
+            <div className='close' onClick={handleDescriptionClick}>×</div>
             <h3>{name}</h3>
             <div>{placeDescription()}</div>
         </div>

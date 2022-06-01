@@ -5,17 +5,22 @@ import { setPostsUrl, selectPostsPrefix } from '../../posts/postsSlice'
 
 export function Subreddit({ subreddit }) {
     
-    const [isHovered, setIsHovered] = useState(false);
+    //const [isHovered, setIsHovered] = useState(false);
+    const [isDescription, setIsDescription] = useState(false);
     const dispatch = useDispatch();
     const postsPrefix = useSelector(selectPostsPrefix);
 
-    const onMouseOverHandler = () => {
+    /*const onMouseOverHandler = () => {
         setIsHovered(true);
     };
 
     const onMouseOutHandler = () => {
         setIsHovered(false);
-    };
+    };*/
+
+    const handleDescriptionClick = () => {
+        setIsDescription(!isDescription)
+    }
 
     const handleUrlClick = () => {
         const noLastSlash = subreddit.url.slice(0, subreddit.url.length - 1);
@@ -25,11 +30,11 @@ export function Subreddit({ subreddit }) {
 
     return (
         <div>
-            <a onClick={handleUrlClick} onMouseOver={onMouseOverHandler} onMouseOut={onMouseOutHandler}> {/*need to change this to link*/}
+            <a onClick={handleUrlClick}> {/*need to change this to link*/}
             <img className='subreddit_icon' src={subreddit.icon}></img>
-            <p className="subreddit_name">{subreddit.name}</p>
             </a>
-            {isHovered && (<SubredditDescription name={subreddit.name} description={subreddit.description} />)}
+            <span className="subreddit_name" onClick={handleDescriptionClick}>{subreddit.name}</span>
+            {isDescription && (<SubredditDescription name={subreddit.name} description={subreddit.description} handleDescriptionClick={handleDescriptionClick} />)}
         </div>
     )
 }

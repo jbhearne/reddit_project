@@ -1,35 +1,100 @@
 
 .menu {
-    width: 70%;
-    border: solid black 4px;
+    width: 50%;
+    border: solid #363376 4px;
     background: white;
     position: absolute;
-    left: 15%;
-    top: 100px;
+    left: 25%;
+    top: 150px;
     z-index: 10;
+    animation-duration: 0.3s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+      margin-top: 100%;
+      
+    }
+  
+    to {
+      margin-top: 0%;
+      
+  }
 }
 
 .subreddits {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    padding-left: 3%;
+}
+
+@media only screen and (max-width: 700px) {
+    .subreddits {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding-left: minmax(.5rem, 5rem);
+        
+    }
+
+    .subreddit div {
+        
+        
+    } 
+}
+
+.subreddit div {
+    display: flex;
+    justify-items: left;
+    align-items: center;
+    
+    
 }
 
 .subreddit a {
-    display: flex;
+    
 }
 
 .subreddit img {
-    width: 3rem;
-    margin: 1rem;
+    width: 5vw;
+    margin: .25rem 1rem .25rem 15%;
+    border: solid #b41e75 3px;
+    border-radius: 50% 50% 50% 50%;
+}
+
+.subreddit_name {
+    font-size: .75rem;
+    font-weight: bold;
 }
 
 .description {
     position: absolute;
     top: 5rem;
-    left: 17%;
-    width: 70%;
-    background-color: bisque;
-    border: solid black 2px;
+    left: 0;
+    right: 0;
+    background-color: #e2f3f0;
+    border: solid #4d8331 4px;
+    border-radius: 10px;
     z-index: 11;
     padding: .5rem;
+    flex-direction: column;
+    
+}
+
+.description div {
+    flex-direction: column;
+    font-size: unset;
+}
+
+.description h3 {
+    width: 100%;
+    
+}
+
+div.close {
+    font-size: 2rem;
+    line-height: .5rem;
+    width: 100%;
+    text-align: right;
+    display: block;
 }

@@ -7,6 +7,10 @@
   pointer-events: none;
 }
 
+.search_header {
+  background-color: white;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-float infinite 3s ease-in-out;
@@ -38,4 +42,30 @@
   }
 }
 
+header {
+  width: 50%;
+  left: 25%;
+  height: 150px;
+  position: absolute;
+  border: solid #363376 4px;
+  position: relative;
+}
+
+h1 {
+  animation: reddit-color-pulse infinite 3s ease-in-out;
+}
+
+@keyframes reddit-color-pulse {
+  0% {
+    color: black;
+  }
+
+  50% {
+    color: #b41e75;
+  }
+
+  100% {
+    color: black;
+  }
+}
 

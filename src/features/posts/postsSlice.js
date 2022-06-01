@@ -27,7 +27,9 @@ export const fetchPosts = createAsyncThunk(
                     imageUrls = imageIdData.map(image => {
                         return child.data.media_metadata[image.media_id].p[0].u.replace('https://preview.redd.it', 'https://i.redd.it');
                     })
-                }
+                } else if (child.data.post_hint === 'image') {
+                    imageUrls.push(child.data.url);
+                };
                 return imageUrls
             }
 
