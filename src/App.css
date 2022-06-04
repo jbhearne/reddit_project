@@ -69,3 +69,16 @@ h1 {
   }
 }
 
+h1:hover {
+  animation: second-color-pulse 1 3s ease;
+}
+
+@keyframes second-color-pulse {
+  from {
+    color: #55bcd8;
+  }
+
+  to {
+    color: black;
+  }
+}

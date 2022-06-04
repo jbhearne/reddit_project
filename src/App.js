@@ -8,6 +8,8 @@ import { Subreddits } from './features/subreddits/Subreddits'
 import { useDispatch, useSelector } from 'react-redux'
 import { setPostsUrl, selectUrl } from './features/posts/postsSlice'
 import { setSubredditsUrl } from './features/subreddits/subredditsSlice'
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 function App() {
 
@@ -32,17 +34,21 @@ function App() {
 
   return (
     <div className="App">
-      <header className='search_header'>
-        <h1 className='main' onClick={handleNavClick}>REDDIT...</h1>
-        <Search />
-      </header>
-      {isNavOpen && (<nav className='floating_nav'>
-        <Subreddits />
-      </nav>)}
-      <div className='posts'>
-        <Posts />
-      </div>
-      
+      <Router>
+        <Route path='/:subbredit'>
+        <header className='search_header'>
+          <h1 className='main' onClick={handleNavClick}>REDDIT...</h1>
+          <Search />
+        </header>
+        {isNavOpen && (<nav className='floating_nav'>
+          <Subreddits />
+        </nav>)}
+        <div className='posts'>
+          <Posts />
+        
+        </div>
+        </Route>
+      </Router>
       {
       /*<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
