@@ -6,19 +6,21 @@ import { Search } from './features/search/Search'
 import { Posts } from './features/posts/Posts'
 import { Subreddits } from './features/subreddits/Subreddits'
 import { useDispatch, useSelector } from 'react-redux'
-import { setPostsUrl, selectUrl } from './features/posts/postsSlice'
+import { setPostsUrl, selectPostsUrl, setPostsPath, selectPostsPath } from './features/posts/postsSlice'
 import { setSubredditsUrl } from './features/subreddits/subredditsSlice'
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 
 function App() {
 
-  const [isNavOpen, setIsNavOpen] = useState(false)
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const dispatch = useDispatch();
-  const postsUrl = useSelector(selectUrl)
+  const postsUrl = useSelector(selectPostsUrl);
+  const postsPath= useSelector(selectPostsPath);
 
   useEffect(() => {
-    dispatch(setPostsUrl('https://www.reddit.com/r/popular.json'))
+    dispatch(setPostsPath('/r/popular.json'))
+    dispatch(setPostsUrl())
     dispatch(setSubredditsUrl('https://www.reddit.com/subreddits.json'))
   }, [])
 
@@ -35,7 +37,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Route path='/:subbredit'>
+        <Route path=''>
         <header className='search_header'>
           <h1 className='main' onClick={handleNavClick}>REDDIT...</h1>
           <Search />
@@ -43,11 +45,15 @@ function App() {
         {isNavOpen && (<nav className='floating_nav'>
           <Subreddits />
         </nav>)}
+        </Route>
+        <Route path='/:postsSelected'>
         <div className='posts'>
+        
           <Posts />
         
         </div>
         </Route>
+        
       </Router>
       {
       /*<header className="App-header">

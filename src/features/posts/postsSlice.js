@@ -68,14 +68,18 @@ export const postsSlice = createSlice({
     name: 'posts',
     initialState: {
         prefix: 'https://www.reddit.com',
+        path: '',
         url: '',
         posts: [],
         isLoading: false,
         hasError: false
     },
     reducers: {
+        setPostsPath: (state, action) => {
+            state.path = action.payload
+        },
         setPostsUrl: (state, action) => {
-            state.url = action.payload;
+            state.url = state.prefix + state.path;
         },
         setPostsPrefix: (state, action) => {
             state.prefix = action.payload;
@@ -99,9 +103,11 @@ export const postsSlice = createSlice({
 })
 
 export const selectPosts = (state) => state.posts.posts;
-export const selectUrl = (state) => state.posts.url;
+export const selectPostsUrl = (state) => state.posts.url;
+export const selectPostsPath = (state) => state.posts.path;
 export const selectPostsPrefix = (state) => state.posts.prefix;
 export const setPostsUrl = postsSlice.actions.setPostsUrl;
 export const setPostsPrefix = postsSlice.actions.setPostsPrefix;
+export const setPostsPath = postsSlice.actions.setPostsPath;
 
 export default postsSlice.reducer

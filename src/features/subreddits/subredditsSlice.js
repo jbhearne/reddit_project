@@ -49,7 +49,7 @@ export const subredditsSlice = createSlice({
 })
 
 export const selectSubreddits = (state) => state.subreddits.subreddits;
-export const selectUrl = (state) => state.subreddits.url;
+export const selectSubredditsUrl = (state) => state.subreddits.url;
 export const setSubredditsUrl = subredditsSlice.actions.setSubredditsUrl;
 
 export default subredditsSlice.reducer;

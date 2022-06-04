@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectSubreddits, selectUrl, fetchSubreddits } from './subredditsSlice';
+import { selectSubreddits, selectSubredditsUrl, fetchSubreddits } from './subredditsSlice';
 import { Subreddit } from './subreddit/Subreddit';
 import './Subreddits.css'
 
 export function Subreddits() {
 
     const subreddits = useSelector(selectSubreddits);
-    const url = useSelector(selectUrl);
+    const url = useSelector(selectSubredditsUrl);
     const dispatch = useDispatch()
 
     useEffect(() => {

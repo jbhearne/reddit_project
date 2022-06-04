@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectSearch, setSearch } from './searchSlice';
-import { selectPostsPrefix, setPostsUrl } from '../posts/postsSlice';
+import { selectPostsPrefix, setPostsUrl, setPostsPath } from '../posts/postsSlice';
 import './Search.css'
 
 export function Search() {
 
     const search = useSelector(selectSearch);
-    const postsPrefix = useSelector(selectPostsPrefix);
+    //const postsPrefix = useSelector(selectPostsPrefix); //When I added path as a state I changed the reducer so that combining the prefix and path is done in postsSlice.
     const dispatch = useDispatch();
 
     const handleChange = (e) => {
@@ -16,8 +16,8 @@ export function Search() {
 
     const handleSearchClick = (e) => {
         e.preventDefault()
-        const url = postsPrefix + '/search.json?q=' + search;  //need to use .json extension for api to work
-        dispatch(setPostsUrl(url));
+        dispatch(setPostsPath('/search.json?q=' + search));  //need to use .json extension for api to work
+        dispatch(setPostsUrl()); // this seems awkward to have to call an action just to combine the prefix and the path. May fix at some point.
         dispatch(setSearch(''))
     }
 
