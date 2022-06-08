@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setPostsUrl, selectPostsUrl, setPostsPath, selectPostsPath } from './features/posts/postsSlice'
 import { setSubredditsUrl } from './features/subreddits/subredditsSlice'
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
 
@@ -19,8 +19,8 @@ function App() {
   const postsPath= useSelector(selectPostsPath);
 
   useEffect(() => {
-    dispatch(setPostsPath('/r/popular.json'))
-    dispatch(setPostsUrl())
+    //dispatch(setPostsPath('/r/popular.json'))
+    //dispatch(setPostsUrl())
     dispatch(setSubredditsUrl('https://www.reddit.com/subreddits.json'))
   }, [])
 
@@ -37,7 +37,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Route path=''>
+        
         <header className='search_header'>
           <h1 className='main' onClick={handleNavClick}>REDDIT...</h1>
           <Search />
@@ -45,14 +45,13 @@ function App() {
         {isNavOpen && (<nav className='floating_nav'>
           <Subreddits />
         </nav>)}
-        </Route>
-        <Route path='/:postsSelected'>
+        
         <div className='posts'>
-        
-          <Posts />
-        
+        <Routes>
+        <Route path='/' element={<Posts />} />
+        <Route path='/:r/:postsSelected' element={<Posts />} /> {/* Params are separated by slash so a Param can only be what is between two slashes not everything after the slash. By not including the /r/ or a param in its place, :r, the urls, as they are currently structured, were not being reconised by Route. */}
+        </Routes>
         </div>
-        </Route>
         
       </Router>
       {

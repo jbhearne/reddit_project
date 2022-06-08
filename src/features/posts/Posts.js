@@ -11,12 +11,21 @@ export function Posts() {
     const url = useSelector(selectPostsUrl);
     const dispatch = useDispatch();
     const { postsSelected } = useParams();
+    let pathName = postsSelected ? postsSelected : 'popular.json'
+    console.log('hi' + postsSelected)
 
     useEffect(() => {
-        dispatch(setPostsPath(postsSelected))
+        dispatch(setPostsPath('/r/' + pathName))
         dispatch(setPostsUrl())
+        console.log('ho' + url)
+        //dispatch(fetchPosts(url))
+    }, [pathName])
+
+    useEffect(() => {
+        console.log('yo' + url)
         dispatch(fetchPosts(url))
-    }, [postsSelected])
+    }, [url])
+    
 
     return (
         <ul className='posts_container'>
