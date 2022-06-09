@@ -49,6 +49,7 @@ function App() {
         <div className='posts'>
         <Routes>
         <Route path='/' element={<Posts />} />
+        <Route path='/search.json' element={<Posts />} />
         <Route path='/:r/:postsSelected' element={<Posts />} /> {/* Params are separated by slash so a Param can only be what is between two slashes not everything after the slash. By not including the /r/ or a param in its place, :r, the urls, as they are currently structured, were not being reconised by Route. */}
         </Routes>
         </div>

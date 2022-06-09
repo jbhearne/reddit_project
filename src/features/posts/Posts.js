@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Post } from './post/Post'
 import postsSlice, { selectPosts, fetchPosts, selectPostsUrl, setPostsPath, setPostsUrl } from './postsSlice';
 import './Posts.css'
-import { Route, useParams } from 'react-router-dom';
+import { Route, useParams, useSearchParams } from 'react-router-dom';
 
 export function Posts() {
 
@@ -11,18 +11,29 @@ export function Posts() {
     const url = useSelector(selectPostsUrl);
     const dispatch = useDispatch();
     const { postsSelected } = useParams();
-    let pathName = postsSelected ? postsSelected : 'popular.json'
-    console.log('hi' + postsSelected)
+    const [searchParams, setSearchParams]  = useSearchParams();
+    //let pathName = postsSelected ? postsSelected : 'popular.json'
+    //console.log('hi' + postsSelected)
+    let pathName = '';
+    console.log('po' + searchParams.get('q'))
+    if (postsSelected) {
+        pathName = '/r/' + postsSelected;
+    } else if (searchParams) {
+        pathName = '/search.json?q=' + searchParams.get('q');
+    } else {
+        pathName = '/r/popular.json'
+    }
+
 
     useEffect(() => {
-        dispatch(setPostsPath('/r/' + pathName))
+        dispatch(setPostsPath(pathName))
         dispatch(setPostsUrl())
-        console.log('ho' + url)
+        //console.log('ho' + url)
         //dispatch(fetchPosts(url))
     }, [pathName])
 
     useEffect(() => {
-        console.log('yo' + url)
+        //console.log('yo' + url)
         dispatch(fetchPosts(url))
     }, [url])
     
