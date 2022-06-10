@@ -9,7 +9,7 @@ export const fetchSubreddits  = createAsyncThunk(
         return response.children.map(child => {
             return {
                 name: child.data.display_name,
-                icon: child.data.icon_img ? child.data.icon_img : './r.png', // I might want to put a ternary here to apply a default icon if none exists.
+                icon: child.data.icon_img ? child.data.icon_img : '/r.png', //   ./ is different than /  I used ./ and that caused the link to break when the route changed.
                 url: child.data.url,
                 description: child.data.description,
                 id: child.data.id

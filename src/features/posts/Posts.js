@@ -18,7 +18,7 @@ export function Posts() {
     console.log('po' + searchParams.get('q'))
     if (postsSelected) {
         pathName = '/r/' + postsSelected;
-    } else if (searchParams) {
+    } else if (searchParams.get('q')) {
         pathName = '/search.json?q=' + searchParams.get('q');
     } else {
         pathName = '/r/popular.json'
