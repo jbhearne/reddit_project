@@ -1,17 +1,29 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchReddit } from '../../app/redditAPI';
 import { convertUnixTime } from '../../app/convertUnixTime';
+import { fakePosts } from '../../../__tests__/fakeReddit.data';
+
+export const fR = async (urlTest) => {           //creating a wrapper function for fetchReddit to enable mocking data. I know there are ways to do this offically with jest, but I am not there yet.
+    const promise = new Promise((res, rej) => {
+        setTimeout(() => res(fakePosts), 100);
+    }) 
+    return urlTest === 'TEST' ? await promise.then(res => res).then(res => res) : await fetchReddit(urlTest)
+}
 
 export const fetchPosts = createAsyncThunk(
     'posts/fetchPosts',
     async (url) => {
-        const response = await fetchReddit(url);
-        console.log(response.children[0].data.gallery_data)
+        const response = await fR(url);
+        //console.log(response.children[0].data.gallery_data)
         //const res = response
         //console.log(res)
+        
+        /*if (response.test) {
+            return ['1', '2']
+        }*/
 
         const mapp = response.children.map(child => {
-            console.log(child)
+            //console.log(child)
             
             const getImageUrls = () => {
                 let imageUrls = []
@@ -53,7 +65,8 @@ export const fetchPosts = createAsyncThunk(
         })
         //console.log(response)
         //console.log(res)
-        console.log(mapp[0])
+        //console.log(mapp[0])
+        
         return mapp
     }
 )
