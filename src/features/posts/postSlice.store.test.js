@@ -80,7 +80,7 @@ describe("how fetchPosts is used to set posts.posts state", () => {
         state = testStore.getState() 
         expect(state.posts.posts.length).toBe(fakePosts.children.length)
     })
-    it('should have a author propery set on the first item in the array', async () => {
+    it('should have a author propery set on the first item in the array', () => {
         const authorName = fakePosts.children[0].data.author
         expect(state.posts.posts[0].author).toBe(authorName)
     })
