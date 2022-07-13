@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Subreddits component should render 1`] = `
+<div
+  className="menu_container"
+>
+  <div
+    className="menu"
+  >
+    <h3>
+      Subreddit
+    </h3>
+    <ul
+      className="subreddits"
+    >
+      <li
+        className="subreddit"
+      >
+        <div>
+          <div
+            onClick={[Function]}
+          >
+            <a
+              activeClassName="nav-link-active"
+              className="nav-link"
+              href="/testSubUr.json"
+              onClick={[Function]}
+            >
+               
+              <img
+                className="subreddit_icon"
+                src="testSubIcon"
+              />
+            </a>
+          </div>
+          <span
+            className="subreddit_name"
+            onClick={[Function]}
+          >
+            testSub
+          </span>
+        </div>
+      </li>
+      <li
+        className="subreddit"
+      >
+        <div>
+          <div
+            onClick={[Function]}
+          >
+            <a
+              activeClassName="nav-link-active"
+              className="nav-link"
+              href="/testSubUrl.json"
+              onClick={[Function]}
+            >
+               
+              <img
+                className="subreddit_icon"
+                src="testSubIcon2"
+              />
+            </a>
+          </div>
+          <span
+            className="subreddit_name"
+            onClick={[Function]}
+          >
+            testSub2
+          </span>
+        </div>
+      </li>
+      <li
+        className="subreddit"
+      >
+        <div>
+          <div
+            onClick={[Function]}
+          >
+            <a
+              activeClassName="nav-link-active"
+              className="nav-link"
+              href="/testSubUrl.json"
+              onClick={[Function]}
+            >
+               
+              <img
+                className="subreddit_icon"
+                src="testSubIcon3"
+              />
+            </a>
+          </div>
+          <span
+            className="subreddit_name"
+            onClick={[Function]}
+          >
+            testSub3
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Subreddits component should render 2`] = `
+<div
+  className="menu_container"
+>
+  <div
+    className="menu"
+  >
+    <h3>
+      Subreddit
+    </h3>
+    <ul
+      className="subreddits"
+    >
+      <li
+        className="subreddit"
+      >
+        <div>
+          <div
+            onClick={[Function]}
+          >
+            <a
+              activeClassName="nav-link-active"
+              className="nav-link"
+              href="/testSubUr.json"
+              onClick={[Function]}
+            >
+               
+              <img
+                className="subreddit_icon"
+                src="testSubIcon"
+              />
+            </a>
+          </div>
+          <span
+            className="subreddit_name"
+            onClick={[Function]}
+          >
+            testSub
+          </span>
+        </div>
+      </li>
+      <li
+        className="subreddit"
+      >
+        <div>
+          <div
+            onClick={[Function]}
+          >
+            <a
+              activeClassName="nav-link-active"
+              className="nav-link"
+              href="/testSubUrl.json"
+              onClick={[Function]}
+            >
+               
+              <img
+                className="subreddit_icon"
+                src="testSubIcon2"
+              />
+            </a>
+          </div>
+          <span
+            className="subreddit_name"
+            onClick={[Function]}
+          >
+            testSub2
+          </span>
+        </div>
+      </li>
+      <li
+        className="subreddit"
+      >
+        <div>
+          <div
+            onClick={[Function]}
+          >
+            <a
+              activeClassName="nav-link-active"
+              className="nav-link"
+              href="/testSubUrl.json"
+              onClick={[Function]}
+            >
+               
+              <img
+                className="subreddit_icon"
+                src="testSubIcon3"
+              />
+            </a>
+          </div>
+          <span
+            className="subreddit_name"
+            onClick={[Function]}
+          >
+            testSub3
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

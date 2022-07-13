@@ -11,7 +11,7 @@ jest.mock('../../app/redditAPI')
 
 
 
-describe('ffffff', () => {
+describe("the store's configuration with the subredditsReducer reducer", () => {
     
     const testStore = configureStore({
         reducer: {
@@ -49,7 +49,7 @@ describe('ffffff', () => {
         const mockedReddit = await fetchReddit()
         expect(mockedReddit).toBe('e')
     })*/
-    it('it should dispatch fetchSubreddits thunk with mocked data', async () => {
+    it('should dispatch fetchSubreddits thunk with mocked data', async () => {
         fetchReddit.mockResolvedValue(fakeSubreddits) //this took me awhile to figure out. I was attemping to do this at the top level scope and fetchreddit kept returning undefined no matter if I used mockReturnValue or mockResolvedValue. This has to be defined within the test scope.
         await testStore.dispatch(fetchSubreddits('https://www.reddit.com/subreddits.json'))
         state = testStore.getState()
@@ -61,7 +61,7 @@ describe('ffffff', () => {
         //const fetched = fetchSubreddits('https://www.reddit.com/subreddits.json')
         //expect(fetched()).toBe('e')
     })
-    it('should have a name property set on the first item in the array', () => {
+    it('should have used fetchSubreddits to set a name property on the first item in the array', () => {
         const expectedName = fakeSubreddits.children[0].data.display_name
         expect(state.subreddits.subreddits[0].name).toBe(expectedName)
     })
