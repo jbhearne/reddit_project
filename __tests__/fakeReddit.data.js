@@ -64,6 +64,38 @@ export const fakePosts = {
     ]
 }
 
+export const fakeSubreddits = {
+    test: true,
+    children: [
+        {
+            data: {
+                display_name: 'testSub',
+                icon_img: 'testIcon.test',
+                url: 'www.testSub.sub',
+                description: 'describe testSub',
+                id: '123'
+            }
+        },
+        {
+            data: {
+                display_name: 'noIconSub',
+                url: 'www.noIconSub.sub',
+                description: 'describe noIconSub',
+                id: '1234'
+            }
+        },
+        {
+            data: {
+                display_name: 'noDescription',
+                icon_img: 'noDescription.test',
+                url: 'www.noDescription.sub',
+                id: '12345'
+            }
+        }
+        
+    ]
+}
+
 /*{
     data: {
         author: '',
