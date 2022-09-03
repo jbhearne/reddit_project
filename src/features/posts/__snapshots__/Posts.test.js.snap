@@ -1,0 +1,327 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Posts component should render 1`] = `
+<ul
+  className="posts_container"
+>
+  <li
+    className="post_box"
+  >
+    <article
+      className="post"
+    >
+      <h3
+        className="title"
+      >
+        <a
+          href="testUrl"
+          target="_blank"
+        >
+          testTitle
+        </a>
+      </h3>
+      <h4
+        className="author"
+      >
+        testAuthor
+      </h4>
+      <h5
+        className="date_upvotes"
+      >
+        testDate - Upvotes: 1
+      </h5>
+      <p>
+        testText
+      </p>
+      <div>
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "testMedia",
+            }
+          }
+        />
+      </div>
+      <ul>
+        <li>
+          <img
+            src="testImage11"
+          />
+        </li>
+        <li>
+          <img
+            src="testImage12"
+          />
+        </li>
+      </ul>
+    </article>
+  </li>
+  <li
+    className="post_box"
+  >
+    <article
+      className="post"
+    >
+      <h3
+        className="title"
+      >
+        <a
+          href="testUrl2"
+          target="_blank"
+        >
+          testTitle2
+        </a>
+      </h3>
+      <h4
+        className="author"
+      >
+        testAuthor2
+      </h4>
+      <h5
+        className="date_upvotes"
+      >
+        testDate2 - Upvotes: 12
+      </h5>
+      <p>
+        testText2
+      </p>
+      <div>
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "testMedia2",
+            }
+          }
+        />
+      </div>
+      <ul>
+        <li>
+          <img
+            src="testImage21"
+          />
+        </li>
+        <li>
+          <img
+            src="testImage22"
+          />
+        </li>
+      </ul>
+    </article>
+  </li>
+  <li
+    className="post_box"
+  >
+    <article
+      className="post"
+    >
+      <h3
+        className="title"
+      >
+        <a
+          href="testUrl3"
+          target="_blank"
+        >
+          testTitle3
+        </a>
+      </h3>
+      <h4
+        className="author"
+      >
+        testAuthor3
+      </h4>
+      <h5
+        className="date_upvotes"
+      >
+        testDate3 - Upvotes: 13
+      </h5>
+      <p>
+        testText3
+      </p>
+      <div>
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "testMedia3",
+            }
+          }
+        />
+      </div>
+      <ul>
+        <li>
+          <img
+            src="testImage31"
+          />
+        </li>
+        <li>
+          <img
+            src="testImage32"
+          />
+        </li>
+      </ul>
+    </article>
+  </li>
+</ul>
+`;
+
+exports[`Posts component should render 2`] = `
+<ul
+  className="posts_container"
+>
+  <li
+    className="post_box"
+  >
+    <article
+      className="post"
+    >
+      <h3
+        className="title"
+      >
+        <a
+          href="testUrl"
+          target="_blank"
+        >
+          testTitle
+        </a>
+      </h3>
+      <h4
+        className="author"
+      >
+        testAuthor
+      </h4>
+      <h5
+        className="date_upvotes"
+      >
+        testDate - Upvotes: 1
+      </h5>
+      <p>
+        testText
+      </p>
+      <div>
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "testMedia",
+            }
+          }
+        />
+      </div>
+      <ul>
+        <li>
+          <img
+            src="testImage11"
+          />
+        </li>
+        <li>
+          <img
+            src="testImage12"
+          />
+        </li>
+      </ul>
+    </article>
+  </li>
+  <li
+    className="post_box"
+  >
+    <article
+      className="post"
+    >
+      <h3
+        className="title"
+      >
+        <a
+          href="testUrl2"
+          target="_blank"
+        >
+          testTitle2
+        </a>
+      </h3>
+      <h4
+        className="author"
+      >
+        testAuthor2
+      </h4>
+      <h5
+        className="date_upvotes"
+      >
+        testDate2 - Upvotes: 12
+      </h5>
+      <p>
+        testText2
+      </p>
+      <div>
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "testMedia2",
+            }
+          }
+        />
+      </div>
+      <ul>
+        <li>
+          <img
+            src="testImage21"
+          />
+        </li>
+        <li>
+          <img
+            src="testImage22"
+          />
+        </li>
+      </ul>
+    </article>
+  </li>
+  <li
+    className="post_box"
+  >
+    <article
+      className="post"
+    >
+      <h3
+        className="title"
+      >
+        <a
+          href="testUrl3"
+          target="_blank"
+        >
+          testTitle3
+        </a>
+      </h3>
+      <h4
+        className="author"
+      >
+        testAuthor3
+      </h4>
+      <h5
+        className="date_upvotes"
+      >
+        testDate3 - Upvotes: 13
+      </h5>
+      <p>
+        testText3
+      </p>
+      <div>
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "testMedia3",
+            }
+          }
+        />
+      </div>
+      <ul>
+        <li>
+          <img
+            src="testImage31"
+          />
+        </li>
+        <li>
+          <img
+            src="testImage32"
+          />
+        </li>
+      </ul>
+    </article>
+  </li>
+</ul>
+`;
