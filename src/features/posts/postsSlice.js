@@ -1,19 +1,24 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchReddit } from '../../app/redditAPI';
 import { convertUnixTime } from '../../app/convertUnixTime';
-import { fakePosts } from '../../../__tests__/fakeReddit.data';
+//import { fakePosts } from '../../../__tests__/fakeReddit.data';
 
-export const fR = async (urlTest) => {           //creating a wrapper function for fetchReddit to enable mocking data. I know there are ways to do this offically with jest, but I am not there yet.
+/*export const fR = async (urlTest) => {           //creating a wrapper function for fetchReddit to enable mocking data. I know there are ways to do this offically with jest, but I am not there yet.
+    // i must get rid of this. tests should not be built into the software itself.
+    // It is actualy preventing it from being compiled as this references a file outside of the src directory. look at the tests
+    // for  subredditsSlice for actual mocking.
+    
     const promise = new Promise((res, rej) => {
         setTimeout(() => res(fakePosts), 100);
     }) 
     return urlTest === 'TEST' ? await promise.then(res => res).then(res => res) : await fetchReddit(urlTest)
-}
+}*/
 
 export const fetchPosts = createAsyncThunk(
     'posts/fetchPosts',
     async (url) => {
-        const response = await fR(url);
+        const response = await fetchReddit(url);
+        //const response = await fR(url);
         //console.log(response.children[0].data.gallery_data)
         //const res = response
         //console.log(res)
