@@ -13,3 +13,17 @@ import App from './App';
 
   expect(getByText(/learn/i)).toBeInTheDocument();
 });*/
+
+describe('The Reddit app', () => {
+
+  const { getByText } = render( //is this to create a "container" for the "Testing Library Query"? but i am not sure how yet.
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+  it('must must display the word "reddit"', () => {
+    expect(getByText(/reddit/i)).toBeInTheDocument(); //regex to find the word reddit, (i)gnoring case, in the rendered webpage.
+  }) 
+  
+
+})
