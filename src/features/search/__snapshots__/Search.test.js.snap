@@ -4,6 +4,7 @@ exports[`Search component should render 1`] = `
 <form
   className="search"
   onSubmit={[Function]}
+  role="search"
 >
     
   <input
@@ -26,6 +27,7 @@ exports[`Search component should render 2`] = `
 <form
   className="search"
   onSubmit={[Function]}
+  role="search"
 >
     
   <input

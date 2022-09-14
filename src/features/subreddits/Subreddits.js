@@ -17,7 +17,7 @@ export function Subreddits() {
     return (
         <div className='menu_container'>
             <div className='menu'>
-                <h3>Subreddit</h3>
+                <h2>Subreddit</h2> {/*changed to h2 to better align the role*/}
                 <ul className='subreddits'>
                     {subreddits.map(subreddit => {
                         return (

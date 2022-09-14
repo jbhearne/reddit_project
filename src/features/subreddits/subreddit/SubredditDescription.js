@@ -14,10 +14,10 @@ export function SubredditDescription({ name, description, handleDescriptionClick
     }
 
     return (
-        <div className='description'>
-            <div className='close' onClick={handleDescriptionClick}>×</div>
-            <h3>{name}</h3>
-            <div>{placeDescription()}</div>
+        <div className='description' role="dialog" aria-labelledby="dialogTitle" aria-describedby="dialogDesc">
+            <div className='close' onClick={handleDescriptionClick} role='button'>×</div>
+            <h3 id="dialogTitle">{name}</h3>
+            <div id="dialogDesc">{placeDescription()}</div>
         </div>
     )
 }

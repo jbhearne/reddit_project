@@ -44,13 +44,14 @@ export function Subreddit({ subreddit }) {
                 to={makePath(subreddit)} ///this is postsPath before the onclick takes effect 
                 key={subreddit.id}
                 className="nav-link"
-                activeClassName="nav-link-active"
                 
-                > {/*I do not really want the URL to diplay the same path as the fetch, but it is for now while i am trying to get the routes to work*/}   
-            <img className='subreddit_icon' src={subreddit.icon} ></img>
+                > {/*I do not really want the URL to display the same path as the fetch, but it is for now while i am trying to get the routes to work*/}
+                {/*activeClassName="nav-link-active" //not in router version 6. If I need to style this apply atribute function: className={({ isActive }) => "nav-link" + (isActive ? " activated" : "")}*/}
+                    
+            <img className='subreddit_icon' src={subreddit.icon} alt={subreddit.name + ' icon'}></img>
             </NavLink>
             </div>
-            <span className="subreddit_name" onClick={handleDescriptionClick}>{subreddit.name}</span>
+            <span role="term" className="subreddit_name" onClick={handleDescriptionClick}>{subreddit.name}</span>
             {isDescription && (<SubredditDescription name={subreddit.name} description={subreddit.description} handleDescriptionClick={handleDescriptionClick} />)}
         </div>
     )

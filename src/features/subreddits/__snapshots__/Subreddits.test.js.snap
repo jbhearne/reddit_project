@@ -7,9 +7,10 @@ exports[`Subreddits component should render 1`] = `
   <div
     className="menu"
   >
-    <h3>
+    <h2>
       Subreddit
-    </h3>
+    </h2>
+     
     <ul
       className="subreddits"
     >
@@ -21,13 +22,13 @@ exports[`Subreddits component should render 1`] = `
             onClick={[Function]}
           >
             <a
-              activeClassName="nav-link-active"
               className="nav-link"
               href="/testSubUr.json"
               onClick={[Function]}
             >
                
               <img
+                alt="testSub icon"
                 className="subreddit_icon"
                 src="testSubIcon"
               />
@@ -36,6 +37,7 @@ exports[`Subreddits component should render 1`] = `
           <span
             className="subreddit_name"
             onClick={[Function]}
+            role="term"
           >
             testSub
           </span>
@@ -49,13 +51,13 @@ exports[`Subreddits component should render 1`] = `
             onClick={[Function]}
           >
             <a
-              activeClassName="nav-link-active"
               className="nav-link"
               href="/testSubUrl.json"
               onClick={[Function]}
             >
                
               <img
+                alt="testSub2 icon"
                 className="subreddit_icon"
                 src="testSubIcon2"
               />
@@ -64,6 +66,7 @@ exports[`Subreddits component should render 1`] = `
           <span
             className="subreddit_name"
             onClick={[Function]}
+            role="term"
           >
             testSub2
           </span>
@@ -77,13 +80,13 @@ exports[`Subreddits component should render 1`] = `
             onClick={[Function]}
           >
             <a
-              activeClassName="nav-link-active"
               className="nav-link"
               href="/testSubUrl.json"
               onClick={[Function]}
             >
                
               <img
+                alt="testSub3 icon"
                 className="subreddit_icon"
                 src="testSubIcon3"
               />
@@ -92,6 +95,7 @@ exports[`Subreddits component should render 1`] = `
           <span
             className="subreddit_name"
             onClick={[Function]}
+            role="term"
           >
             testSub3
           </span>
@@ -109,9 +113,10 @@ exports[`Subreddits component should render 2`] = `
   <div
     className="menu"
   >
-    <h3>
+    <h2>
       Subreddit
-    </h3>
+    </h2>
+     
     <ul
       className="subreddits"
     >
@@ -123,13 +128,13 @@ exports[`Subreddits component should render 2`] = `
             onClick={[Function]}
           >
             <a
-              activeClassName="nav-link-active"
               className="nav-link"
               href="/testSubUr.json"
               onClick={[Function]}
             >
                
               <img
+                alt="testSub icon"
                 className="subreddit_icon"
                 src="testSubIcon"
               />
@@ -138,6 +143,7 @@ exports[`Subreddits component should render 2`] = `
           <span
             className="subreddit_name"
             onClick={[Function]}
+            role="term"
           >
             testSub
           </span>
@@ -151,13 +157,13 @@ exports[`Subreddits component should render 2`] = `
             onClick={[Function]}
           >
             <a
-              activeClassName="nav-link-active"
               className="nav-link"
               href="/testSubUrl.json"
               onClick={[Function]}
             >
                
               <img
+                alt="testSub2 icon"
                 className="subreddit_icon"
                 src="testSubIcon2"
               />
@@ -166,6 +172,7 @@ exports[`Subreddits component should render 2`] = `
           <span
             className="subreddit_name"
             onClick={[Function]}
+            role="term"
           >
             testSub2
           </span>
@@ -179,13 +186,13 @@ exports[`Subreddits component should render 2`] = `
             onClick={[Function]}
           >
             <a
-              activeClassName="nav-link-active"
               className="nav-link"
               href="/testSubUrl.json"
               onClick={[Function]}
             >
                
               <img
+                alt="testSub3 icon"
                 className="subreddit_icon"
                 src="testSubIcon3"
               />
@@ -194,6 +201,7 @@ exports[`Subreddits component should render 2`] = `
           <span
             className="subreddit_name"
             onClick={[Function]}
+            role="term"
           >
             testSub3
           </span>
