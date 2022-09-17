@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search component should render 1`] = `
+<form
+  className="search"
+  onSubmit={[Function]}
+  role="search"
+>
+    
+  <input
+    className="field"
+    name="search"
+    onChange={[Function]}
+    placeholder="  Search"
+    type="text"
+    value="searchTest"
+  />
+  <button>
+    <img
+      className="search_img"
+    />
+  </button>
+</form>
+`;
+
+exports[`Search component should render 2`] = `
+<form
+  className="search"
+  onSubmit={[Function]}
+  role="search"
+>
+    
+  <input
+    className="field"
+    name="search"
+    onChange={[Function]}
+    placeholder="  Search"
+    type="text"
+    value="searchTest"
+  />
+  <button>
+    <img
+      className="search_img"
+    />
+  </button>
+</form>
+`;

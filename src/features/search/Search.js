@@ -29,7 +29,7 @@ export function Search() {
 
 
     return (
-        <form className='search' onSubmit={handleSearchClick}>  {/*onSubmit goes on <form> not <button> this caused some frustration*/}
+        <form className='search' onSubmit={handleSearchClick} role='search'>  {/*onSubmit goes on <form> not <button> this caused some frustration*/}
             <input className='field' type='text' placeholder='  Search' name='search' onChange={handleChange} value={search}></input>
             <button><img className='search_img'></img></button>
         </form>

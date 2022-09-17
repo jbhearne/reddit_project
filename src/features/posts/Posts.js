@@ -15,7 +15,7 @@ export function Posts() {
     //let pathName = postsSelected ? postsSelected : 'popular.json'
     //console.log('hi' + postsSelected)
     let pathName = '';
-    console.log('po' + searchParams.get('q'))
+    //console.log('po' + searchParams.get('q'))
     if (postsSelected) {
         pathName = '/r/' + postsSelected;
     } else if (searchParams.get('q')) {
@@ -33,7 +33,27 @@ export function Posts() {
     }, [pathName])
 
     useEffect(() => {
-        //console.log('yo' + url)
+        /*const d = (thunk) => {
+            return thunk;
+        }
+        const g = () => {
+            return {
+                posts: {
+                    prefix: 'https://www.reddit.com',
+                    path: '',
+                    url: '',
+                    posts: [],
+                    isLoading: false,
+                    hasError: false
+                }
+            }
+        }
+        const what = d(fetchPosts(url))
+        const huh = what(d, g)
+        console.log(what)
+        console.log(huh)*/
+        //const initPromise = fetchPosts(url);
+        //console.log(initPromise(d, g))
         dispatch(fetchPosts(url))
     }, [url])
     
