@@ -43,3 +43,4 @@ export function Post({ post }) {
 }
 
 // There may be alt text that can be pulled from reddit json, but that would require adding another property to the posts object array in postSlice
+// it may also be possible that there are smaller images available on reddit to improve performance.
