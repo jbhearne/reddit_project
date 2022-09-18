@@ -18,7 +18,7 @@ export function Subreddits() {
         <div className='menu_container'>
             <div className='menu'>
                 <h2>Subreddit</h2> {/*changed to h2 to better align the role*/}
-                <ul className='subreddits'>
+                <ul className='subreddits' role='menu'>
                     {subreddits.map(subreddit => {
                         return (
                             <li className='subreddit' key={subreddit.id}><Subreddit subreddit={subreddit} /></li>
