@@ -34,10 +34,12 @@ export function Post({ post }) {
             <ul>
                 {post.images.map((image, i) => {
                     return (
-                        <li key={`${post.id}img${i}`}><img src={image}></img></li>
+                        <li key={`${post.id}img${i}`}><img src={image} alt={`Image for ${post.author}'s post`}></img></li>
                     )
                 })}
             </ul>
         </article>
     )
 }
+
+// There may be alt text that can be pulled from reddit json, but that would require adding another property to the posts object array in postSlice
