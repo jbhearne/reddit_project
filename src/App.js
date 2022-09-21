@@ -39,9 +39,9 @@ function App() {
       <Router>
         
         <header className='search_header'>
-        <span className='main' ><button id="menubutton" onClick={handleNavClick} aria-haspopup="true" aria-controls="menu">
-            REDDIT...
-          </button></span>
+          <button id="menubutton" onClick={handleNavClick} aria-haspopup="true" aria-controls="menu">
+           <h1 className='main' >REDDIT...</h1>
+          </button>
           <Search />
         </header>
         <div id="menu">
