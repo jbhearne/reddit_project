@@ -44,7 +44,7 @@ function App() {
           </button></h1>
           <Search />
         </header>
-        {isNavOpen && (<nav className='floating_nav'>
+        {isNavOpen && (<nav id="menu"  className='floating_nav'>
           <Subreddits />
         </nav>)}
         
