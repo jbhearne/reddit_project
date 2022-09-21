@@ -44,11 +44,10 @@ function App() {
           </button>
           <Search />
         </header>
-        <div id="menu" role='menu' aria-labelledby="menubutton">
+        
         {isNavOpen && (<nav   className='floating_nav'>
           <Subreddits />
         </nav>)}
-        </div>
         
         <div className='posts'>
         <Routes>
