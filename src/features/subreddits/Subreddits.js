@@ -17,8 +17,8 @@ export function Subreddits() {
     return (
         <div className='menu_container'>
             <div className='menu'>
-                <h6>Subreddit</h6> {/*changed to h2 to better align the role*/}
-                <ul className='subreddits' role='menu'>
+                <h2>Subreddit</h2> {/*changed to h2 to better align the role*/}
+                <ul id="menu" className='subreddits' role='menu' aria-labelledby="menubutton">
                     {subreddits.map(subreddit => {
                         return (
                             <li className='subreddit' key={subreddit.id}><Subreddit subreddit={subreddit} /></li>
