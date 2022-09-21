@@ -39,7 +39,7 @@ function App() {
       <Router>
         
         <header className='search_header'>
-          <button id="menubutton" aria-haspopup="true" aria-controls="menu" onClick={handleNavClick} >
+          <button id="menubutton" onClick={handleNavClick} >
             <h1 className='main' >REDDIT...</h1>
           </button>
           <Search />
