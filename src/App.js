@@ -39,9 +39,9 @@ function App() {
       <Router>
         
         <header className='search_header'>
-          <button id="menubutton" onClick={handleNavClick} >
-            <h1 className='main' >REDDIT...</h1>
-          </button>
+        <h1 className='main' ><button id="menubutton" onClick={handleNavClick} >
+            REDDIT...
+          </button></h1>
           <Search />
         </header>
         {isNavOpen && (<nav className='floating_nav'>
