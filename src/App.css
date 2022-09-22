@@ -51,6 +51,12 @@ header {
   position: relative;
 }
 
+#menubutton {
+  border-style: none;
+  background-color: transparent;
+  font-family: inherit;
+}
+
 h1 {
   animation: reddit-color-pulse infinite 3s ease-in-out;
 }
