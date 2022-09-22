@@ -15,11 +15,9 @@
     from {
       margin-top: 100%;
       
-    }
-  
+    } 
     to {
-      margin-top: 0%;
-      
+      margin-top: 0%; 
   }
 }
 
@@ -33,11 +31,8 @@
     .subreddits {
         display: grid;
         grid-template-columns: 1fr;
-        padding-left: minmax(.5rem, 5rem);
-        
-    }
-
- 
+        padding-left: minmax(.5rem, 5rem);        
+    } 
 }
 
 h2 {
@@ -47,13 +42,7 @@ h2 {
 .subreddit div {
     display: flex;
     justify-items: left;
-    align-items: center;
-    
-    
-}
-
-.subreddit a {
-    
+    align-items: center;   
 }
 
 .subreddit img {
@@ -70,51 +59,40 @@ h2 {
     margin-left: 3%;
 }
 
-
 @media only screen and (max-width: 1200px) {
-
     .subreddit_name {
         font-size: .8rem;
     }
- 
 }
 
 @media only screen and (max-width: 900px) {
-
     .subreddit_name {
         font-size: .6rem;
     }
- 
 }
 
 @media only screen and (max-width: 700px) {
-
     .subreddit_name {
         font-size: 1rem;
     }
- 
 }
 
 @media only screen and (max-width: 550px) {
-
     .subreddit_name {
         font-size: .8rem;
     }
- 
 }
-@media only screen and (max-width: 450px) {
 
+@media only screen and (max-width: 450px) {
     .subreddit_name {
         font-size: .6rem;
     }
- 
 }
-@media only screen and (max-width: 350px) {
 
+@media only screen and (max-width: 350px) {
     .subreddit_name {
         font-size: .5rem;
     }
- 
 }
 
 .description {
@@ -127,8 +105,7 @@ h2 {
     border-radius: 10px;
     z-index: 11;
     padding: .5rem;
-    flex-direction: column;
-    
+    flex-direction: column;   
 }
 
 .description div {
@@ -138,7 +115,6 @@ h2 {
 
 .description h3 {
     width: 100%;
-    
 }
 
 div.close {

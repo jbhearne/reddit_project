@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import showdown from 'showdown';
-import { useSelector, useDispatch } from 'react-redux';
 
 export function SubredditDescription({ name, description, handleDescriptionClick }) {
 

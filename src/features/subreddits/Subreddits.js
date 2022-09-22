@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectSubreddits, selectSubredditsUrl, fetchSubreddits } from './subredditsSlice';
 import { Subreddit } from './subreddit/Subreddit';
-import './Subreddits.css'
+import './Subreddits.css';
 
 export function Subreddits() {
 
     const subreddits = useSelector(selectSubreddits);
     const url = useSelector(selectSubredditsUrl);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchSubreddits(url))
-    }, [url])
+        dispatch(fetchSubreddits(url));
+    }, [url]);
 
     return (
         <div className='menu_container'>
@@ -28,4 +28,4 @@ export function Subreddits() {
             </div>
         </div>
     )
-}
+};
