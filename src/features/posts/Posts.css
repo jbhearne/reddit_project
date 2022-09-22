@@ -4,7 +4,6 @@ ul {
     padding: 0;
 }
 
-
 .posts_container {
     display: block;
     columns: 2 200px;
@@ -52,7 +51,7 @@ ul {
     border-radius: 10px;
     padding: .25rem;
     animation-name: growContainer;
-    animation-duration: 1s;
+    animation-duration: 1.5s;
 }
 
 .post_box video {
