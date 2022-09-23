@@ -1,32 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectSearch, setSearch } from './searchSlice';
-import { selectPostsPrefix, setPostsUrl, setPostsPath } from '../posts/postsSlice';
-import './Search.css'
+import './Search.css';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 export function Search() {
 
     const search = useSelector(selectSearch);
-    //const postsPrefix = useSelector(selectPostsPrefix); //When I added path as a state I changed the reducer so that combining the prefix and path is done in postsSlice.
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [searchParams, setSearchParams] = useSearchParams();
-   
 
     const handleChange = (e) => {
         dispatch(setSearch(e.target.value));
-    }
+    };
 
     const handleSearchClick = (e) => {
-        e.preventDefault()
-        //dispatch(setPostsPath('/search.json?q=' + search));  //need to use .json extension for api to work
-        //dispatch(setPostsUrl()); // this seems awkward to have to call an action just to combine the prefix and the path. May fix at some point.
-        navigate('/search.json?q=' + search)
-        //setSearchParams({q: search}) //not sure which is preferable navigate or useSearchParams
-        dispatch(setSearch(''))
+        e.preventDefault();
+        navigate('/search.json?q=' + search); //need to use .json extension for api to work -- rather than dispatch a new url to postsSlice we set the URL in the browser which triggers a dispatch in Posts.js
+        dispatch(setSearch('')); //clears search bar
     }
-
 
     return (
         <form className='search' onSubmit={handleSearchClick} role='search'>  {/*onSubmit goes on <form> not <button> this caused some frustration*/}

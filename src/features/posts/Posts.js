@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Post } from './post/Post'
-import postsSlice, { selectPosts, fetchPosts, selectPostsUrl, setPostsPath, setPostsUrl } from './postsSlice';
-import './Posts.css'
-import { Route, useParams, useSearchParams } from 'react-router-dom';
+import { Post } from './post/Post';
+import { selectPosts, fetchPosts, selectPostsUrl, setPostsPath, setPostsUrl } from './postsSlice';
+import './Posts.css';
+import { useParams, useSearchParams } from 'react-router-dom';
 
 export function Posts() {
 
@@ -12,64 +12,34 @@ export function Posts() {
     const dispatch = useDispatch();
     const { postsSelected } = useParams();
     const [searchParams, setSearchParams]  = useSearchParams();
-    //let pathName = postsSelected ? postsSelected : 'popular.json'
-    //console.log('hi' + postsSelected)
-    let pathName = '';
-    //console.log('po' + searchParams.get('q'))
-    if (postsSelected) {
-        pathName = '/r/' + postsSelected;
-    } else if (searchParams.get('q')) {
-        pathName = '/search.json?q=' + searchParams.get('q');
-    } else {
-        pathName = '/r/popular.json'
-    }
-
-
-    useEffect(() => {
-        dispatch(setPostsPath(pathName))
-        dispatch(setPostsUrl())
-        //console.log('ho' + url)
-        //dispatch(fetchPosts(url))
-    }, [pathName])
-
-    useEffect(() => {
-        /*const d = (thunk) => {
-            return thunk;
-        }
-        const g = () => {
-            return {
-                posts: {
-                    prefix: 'https://www.reddit.com',
-                    path: '',
-                    url: '',
-                    posts: [],
-                    isLoading: false,
-                    hasError: false
-                }
-            }
-        }
-        const what = d(fetchPosts(url))
-        const huh = what(d, g)
-        console.log(what)
-        console.log(huh)*/
-        //const initPromise = fetchPosts(url);
-        //console.log(initPromise(d, g))
-        dispatch(fetchPosts(url))
-    }, [url])
     
+    let pathName = '';
+    if (postsSelected) {
+        pathName = '/r/' + postsSelected;  //if there is a value passed from the route in App.js constructs a new path to fetch posts from reddit
+    } else if (searchParams.get('q')) {
+        pathName = '/search.json?q=' + searchParams.get('q'); // if there is a query, constructs a path to fetch from
+    } else {
+        pathName = '/r/popular.json'; //if no params are passed from the route then deafault to this.
+    };
 
+    useEffect(() => {
+        dispatch(setPostsPath(pathName)); //send the newly constucted path to the store
+        dispatch(setPostsUrl()); //updates the full URL to include the new path
+    }, [pathName]);
+
+    useEffect(() => {
+        dispatch(fetchPosts(url)); // get new posts everytime the URL changes.
+    }, [url]);
+    
     return (
         <ul className='posts_container'>
             {posts.map(post => {
-                return (
-                    
-                        <li className='post_box' key={post.id}>
-                            
-                                <Post post={post} />
-                            </li>
-                    
+                return (                
+                    <li className='post_box' key={post.id}>    
+                        <Post post={post} />
+                    </li>
                 )
             })}
         </ul>
-    )
-}
+    );
+};

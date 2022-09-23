@@ -1,4 +1,4 @@
-import searchReducer, { setSearch } from './searchSlice'
+import searchReducer, { setSearch } from './searchSlice';
 
 describe('search reducer', () => {
     const expectedInitialState = {
@@ -6,10 +6,10 @@ describe('search reducer', () => {
     }
 
     it('should handle initial state', () => {
-        expect(searchReducer(undefined, { type: 'unknown' })).toEqual(expectedInitialState)
-    })
+        expect(searchReducer(undefined, { type: 'unknown' })).toEqual(expectedInitialState);
+    });
     it('should set the search term with setSerch', () => {
-        const actual = searchReducer(expectedInitialState, setSearch('test'))
+        const actual = searchReducer(expectedInitialState, setSearch('test'));
         expect(actual.search).toBe('test')
-    })
-})
+    });
+});

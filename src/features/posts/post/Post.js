@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
+import React from 'react';
 
 export function Post({ post }) {
-
 
     const placeMedia = () => {
         if (post.media) {
             if (post.media.embed) {
                 const createMarkup = () => {
-                    return {__html: post.media.embed}
+                    return {__html: post.media.embed};
                 }
                 return <div dangerouslySetInnerHTML={createMarkup()}></div> // when I looked this up it said this was created to remind you that it was dangerous, so I am using it to remind my self not to use it.
             } else if (post.media.video) {
@@ -18,11 +15,11 @@ export function Post({ post }) {
                         <source src={post.media.video}></source>
                     </video>
                 )
-            }
+            };
         } else {
-            return ''
-        }
-    }
+            return '';
+        };
+    };
 
     return (
         <article className='post'>

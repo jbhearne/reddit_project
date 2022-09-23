@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { computeHeadingLevel } from '@testing-library/react';
 import { fetchReddit } from '../../app/redditAPI';
 
 export const fetchSubreddits  = createAsyncThunk(
@@ -13,10 +12,10 @@ export const fetchSubreddits  = createAsyncThunk(
                 url: child.data.url,
                 description: child.data.description,
                 id: child.data.id
-            }
+            };
         })
     }
-)
+);
 
 export const subredditsSlice = createSlice({
     name: 'subreddits',
@@ -28,7 +27,7 @@ export const subredditsSlice = createSlice({
     },
     reducers: {
         setSubredditsUrl: (state, action) => {
-            state.url = action.payload
+            state.url = action.payload;
         }
     },
     extraReducers: {
